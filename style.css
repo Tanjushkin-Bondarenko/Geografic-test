@@ -1,0 +1,42 @@
+body{
+    margin: 0;
+    background-image: url("ocean.jpg");
+    background-size: cover;
+}
+h1{
+    color: rgb(102, 100, 100);
+}
+.question{
+    color: rgb(77, 244, 230);
+    font-size: 24px;
+    font-weight: bolder;
+    padding-left: 10px;
+}
+.variant{
+    color: rgb(102, 100, 100);
+    font-size: 18px;
+    display:list-item;
+}
+.answer{
+margin: 0;
+padding:30px 20px 30px 10px ;
+font-size: 18px;
+
+}
+.spanRes{
+    font-size: 18px;
+    padding-left: 20px;
+}
+.passed{
+    color: rgb(77, 244, 230);
+}
+.no_passed{
+    color: red;
+}
+.btn{
+background-color: rgb(102, 100, 100);
+color: rgb(77, 244, 230);
+border: 0;
+border-radius: 8%;
+font-size:16px ;
+}
