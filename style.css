@@ -3,6 +3,7 @@ body{
        background-image: url("BG.jpg");
     background-size: cover;
     background-attachment: fixed;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 h1{
@@ -24,9 +25,15 @@ h1{
     display:list-item;
 }
 .answer{
-margin: 0;
-padding:30px 20px 30px 10px ;
-font-size: 1.3rem;
+    background-color: rgb(1, 70, 70);
+    color: rgb(77, 244, 230);
+    border: 0;
+    border-radius: 8%;
+    font-size:16px ;
+    padding: 8px 15px;
+    margin: 20px 20px;
+    margin-right: 10px;
+    cursor: pointer;
 
 }
 .spanRes{
@@ -35,9 +42,9 @@ font-size: 1.3rem;
 .passed{
     border:0;
     border-radius: 7%;
-    background-color:rgb(77, 244, 230);
+    background-color:rgb(91, 244, 77);
     padding: 8px 15px;
-    color: rgb(1, 70, 70);
+    color: rgb(0, 11, 11);
 }
 .no_passed{
     
@@ -46,15 +53,6 @@ font-size: 1.3rem;
     background-color: rgb(255, 0, 0);
     padding: 8px 15px;
     color: rgb(1, 70, 70);
-}
-.btn{
-background-color: rgb(1, 70, 70);
-color: rgb(77, 244, 230);
-border: 0;
-border-radius: 8%;
-font-size:16px ;
-padding: 8px 15px;
-margin-right: 10px;
 }
 
 @media screen and (max-width: 700px) {
@@ -74,7 +72,6 @@ margin-right: 10px;
   
 }
 .answer{
-
 font-size: 1rem;
 
 }

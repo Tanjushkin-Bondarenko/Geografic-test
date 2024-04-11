@@ -59,13 +59,10 @@ class Test {
         this.variants = tests.variants;
         this.form = document.createElement("form");
         document.body.append(this.form);
-        this.divAnswer = document.createElement("div");
-        this.divAnswer.classList.add("answer")
-        document.body.append(this.divAnswer)
         this.checkBtn = document.createElement("button");
-        this.checkBtn.classList.add("btn")
+        this.checkBtn.classList.add("answer")
         this.checkBtn.innerHTML = "Відповісти"
-        this.divAnswer.append(this.checkBtn);
+        document.body.append(this.checkBtn);
         this.spanRes = document.createElement("span");
         this.spanRes.classList.add("spanRes")
         this.checkBtn.after(this.spanRes)
@@ -94,6 +91,7 @@ class ChekAnswer {
         this.amswer = tests.answer;
         this.arrAnsw = [];
         this.rightAnsw = [];
+        this.result = document.querySelector(".spanRes")
     }
     getAnswer() {
         let inputs = document.querySelectorAll("input");
@@ -101,29 +99,32 @@ class ChekAnswer {
             if (input.checked) {
                 this.arrAnsw.push(input.dataset.name)
                 if (input.dataset.name === input.name) {
+                    if(this.rightAnsw.includes(input.dataset.name))return
                     this.rightAnsw.push(input.dataset.name)
                 }
-            } console.log(this.arrAnsw, this.rightAnsw)
+                
+            } 
         } 
     }
     
     checkPassedTest() {
         if (this.arrAnsw.length < 10) {
-            document.querySelector(".spanRes").textContent = "Ви не дали відповідь на всі питання";
-            document.querySelector(".spanRes").classList.add("no_passed")
+            this.result.textContent = "Для отримання результату дайте відповідь на всі питання";
+            this.result.classList.add("no_passed")
         } else {
             let allQuestion = tests.length
             let rightAnsw = this.rightAnsw.length;
             let rightAnswPersent = (rightAnsw * 100) / allQuestion;
             if (rightAnswPersent < 70) {
-                document.querySelector(".answer").classList.add("no_passed")
-                document.querySelector(".spanRes").textContent = `Ви не здали тест. Вірних відповідей - ${rightAnsw}, що становить ${rightAnswPersent} % `
+                this.result.classList.add("no_passed")
+                this.result.textContent = `Ви не здали тест. Вірних відповідей - ${rightAnsw}, що становить ${rightAnswPersent} % `
                 this.arrAnsw = []
                 this.rightAnsw = []
             }
             else {
-                document.querySelector(".answer").classList.add("passed")
-                document.querySelector(".spanRes").textContent = `Ви здали тест. Вірних відповідей - ${rightAnsw}, що становить ${rightAnswPersent} % `
+                this.result.classList.toggle("no_passed")
+                this.result.classList.add("passed")
+                this.result.textContent = `Ви здали тест. Вірних відповідей - ${rightAnsw}, що становить ${rightAnswPersent} % `
                 this.arrAnsw = []
                 this.rightAnsw = []
             }
@@ -131,8 +132,8 @@ class ChekAnswer {
     }  
 }        
     
-let chA = new ChekAnswer()
+let checkAnswer = new ChekAnswer()
 document.querySelector(".answer").addEventListener("click", function () {
-    chA.getAnswer();
-    chA.checkPassedTest();
+    checkAnswer.getAnswer();
+    checkAnswer.checkPassedTest();
 })
