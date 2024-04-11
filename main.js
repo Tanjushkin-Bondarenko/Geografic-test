@@ -100,10 +100,10 @@ class ChekAnswer {
                 this.arrAnsw.push(input.dataset.name)
                 if (input.dataset.name === input.name) {
                     if(this.rightAnsw.includes(input.dataset.name))return
+                    if(this.rightAnsw.includes(input.dataset.name))return
                     this.rightAnsw.push(input.dataset.name)
                 }
-                
-            } 
+            } console.log(this.arrAnsw, this.rightAnsw)
         } 
     }
     
@@ -132,8 +132,8 @@ class ChekAnswer {
     }  
 }        
     
-let checkAnswer = new ChekAnswer()
+let chA = new ChekAnswer()
 document.querySelector(".answer").addEventListener("click", function () {
-    checkAnswer.getAnswer();
-    checkAnswer.checkPassedTest();
+    chA.getAnswer();
+    chA.checkPassedTest();
 })
