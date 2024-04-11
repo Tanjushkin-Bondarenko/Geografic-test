@@ -101,6 +101,7 @@ class ChekAnswer {
             if (input.checked) {
                 this.arrAnsw.push(input.dataset.name)
                 if (input.dataset.name === input.name) {
+                    if(this.rightAnsw.includes(input.dataset.name))return
                     this.rightAnsw.push(input.dataset.name)
                 }
             } 
@@ -132,7 +133,7 @@ class ChekAnswer {
 }        
     
 let chA = new ChekAnswer()
-document.querySelector(".answer").addEventListener("click", function () {
+document.querySelector(".answer").addEventListener("click", function (e) {
     chA.getAnswer();
     chA.checkPassedTest();
 })
