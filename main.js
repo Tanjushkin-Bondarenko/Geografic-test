@@ -107,6 +107,7 @@ class ChekAnswer {
     }
     
     checkPassedTest() {
+        if (this.arrAnsw.length === 10)return
         if (this.arrAnsw.length < 10) {
             this.result.textContent = "Для отримання результату дайте відповідь на всі питання";
             this.result.classList.add("no_passed")
@@ -121,7 +122,7 @@ class ChekAnswer {
                 this.rightAnsw = []
             }
             else {
-                this.result.classList.toggle("no_passed")
+                this.result.classList.remove("no_passed")
                 this.result.classList.add("passed")
                 this.result.textContent = `Ви здали тест. Вірних відповідей - ${rightAnsw}, що становить ${rightAnswPersent} % `
                 this.arrAnsw = []
