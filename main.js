@@ -103,7 +103,7 @@ class ChekAnswer {
                 if (input.dataset.name === input.name) {
                     this.rightAnsw.push(input.dataset.name)
                 }
-            } console.log(this.arrAnsw, this.rightAnsw)
+            } 
         } 
     }
     
